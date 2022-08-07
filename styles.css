@@ -1,0 +1,344 @@
+/* page wide  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+p {
+    padding: 0;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Tiro Devanagari Sanskrit", serif;
+    /* background-image: url(https://source.unsplash.com/2560x1440?Waterfall); */
+}
+
+/* containers */
+
+.weather-forecast-container {
+    background: #041115df;
+    padding: 3em;
+    border-radius: 45px;
+    width: 90%;
+    max-height: 90%;
+    margin: 1em;
+    color: white;
+    overflow-y: hidden;
+}
+.weather-width {
+    max-width: 750px;
+}
+.forecast-width {
+    max-width: 1000px;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.forecast-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+.hidden {
+    display: none;
+}
+/* search  */
+
+#search {
+    outline: none;
+    padding: 0.75em;
+    border-radius: 10px;
+    border: none;
+    width: 65%;
+    background: #5b5b5b;
+    color: white;
+    font-size: 0.75em;
+    margin-left: -10%;
+}
+::placeholder {
+    color: white;
+}
+.search-button {
+    margin: 0.5em 1.5em;
+    border-radius: 50%;
+    height: 3.5em;
+    width: 3.5em;
+    outline: none;
+    border: none;
+    transition: 0.5s ease-in-out;
+}
+.search-button:hover {
+    background-color: #1588b5e0;
+}
+.fa-searchengin {
+    font-size: 1.5em;
+}
+.search-returns {
+    display: flex;
+    flex-direction: column;
+}
+
+/* weather search returns  */
+
+.search-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0%;
+}
+.search-details {
+    margin-top: 7.5%;
+}
+.search-return {
+    padding: 2% 0%;
+    margin: 1% 0%;
+}
+.description {
+    text-transform: capitalize;
+}
+.icon {
+    margin-top: -10%;
+}
+label.loading {
+    visibility: hidden;
+}
+.search-returns.loading {
+    visibility: hidden;
+    max-height: 50px;
+    position: relative;
+}
+.search-returns.loading:after {
+    visibility: visible;
+    color: white;
+    position: absolute;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    font-size: 1.2em;
+}
+@media (max-width: 600px) {
+    .grid {
+        font-size: 0.9em;
+    }
+}
+.small-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.small-flex > *:nth-child(1) {
+    padding-right: 3%;
+}
+.small-flex > *:nth-child(2) {
+    padding-left: 3%;
+}
+
+/* forecast search returns  */
+
+.forecast-card {
+    width: 30%;
+    height: 5em;
+    border: 2px white solid;
+    padding: 0.35em;
+    margin: 1em 0.25em;
+    display: grid;
+    grid-template-columns: 30% 45% 25%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+        "pic description temperature"
+        "pic time-date humidity";
+}
+
+.forecast-icon {
+    grid-area: pic;
+    justify-self: center;
+    align-self: center;
+    height: 4em;
+    margin-left: -20%;
+    margin-right: -10%;
+}
+.forecast-description {
+    grid-area: description;
+    font-size: 0.75em;
+    justify-self: start;
+    text-transform: capitalize;
+}
+.forecast-temp {
+    grid-area: temperature;
+    font-size: 0.85em;
+    justify-self: end;
+}
+.forecast-time-date {
+    grid-area: time-date;
+    font-size: 0.75em;
+    justify-self: start;
+}
+.forecast-humidity {
+    grid-area: humidity;
+    font-size: 0.75em;
+    justify-self: end;
+}
+@media (max-width: 1000px) {
+    .forecast-temp {
+        font-size: 0.725em;
+    }
+    .forecast-description {
+        font-size: 0.625em;
+    }
+    .forecast-time-date {
+        font-size: 0.65em;
+    }
+    .forecast-humidity {
+        font-size: 0.65em;
+    }
+}
+
+/* progress bar styling */
+
+.med-flex {
+    display: flex;
+}
+.med-flex > *:nth-child(1) {
+    margin-right: 4%;
+    margin-left: 4%;
+}
+.med-flex > *:nth-child(2) {
+    margin-left: 4%;
+    margin-right: 4%;
+}
+.med-flex > *:nth-child(3) {
+    margin-left: 4%;
+}
+.progress-bars {
+    margin-top: 7.5%;
+}
+.progress {
+    width: 10em;
+    height: 2em;
+    background: grey;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.humidity-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: green;
+}
+.clouds-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: green;
+}
+.visibility-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: green;
+}
+.humidity-progress-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 22%;
+    font-size: 0.8em;
+}
+.clouds-progress-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 22%;
+    font-size: 0.9em;
+}
+.visibility-progress-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 23%;
+    font-size: 0.8em;
+}
+@media (max-width: 600px) {
+    .humidity-progress-text {
+        font-size: 0.6em;
+    }
+    .clouds-progress-text {
+        font-size: 0.7em;
+    }
+    .visibility-progress-text {
+        font-size: 0.6em;
+    }
+}
+
+/* weather/forecast view changer */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+span.weather-forecast-label {
+    position: absolute;
+    margin-left: 125%;
+    margin-top: 15%;
+}

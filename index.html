@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--Script for Font Awesome-->
+        <script src="https://kit.fontawesome.com/772206fc3d.js" crossorigin="anonymous"></script>
+        <!--Font Imports-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
+        <!--CSS Imports-->
+        <link rel="stylesheet" href="./styles.css" />
+        <!--JS Imports-->
+        <script src="./script.js" defer></script>
+        <title>Weather App</title>
+    </head>
+    <body>
+        <div id="whole-container" class="weather-forecast-container weather-width">
+            <div class="search-container">
+                <input type="text" name="search" id="search" placeholder="Search your city!" />
+                <button type="button" class="search-button" id="search-button"><i class="fa-brands fa-searchengin"></i></button>
+                <!-- Rectangular switch -->
+                <label class="switch loading">
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                    <span class="weather-forecast-label">Weather</span>
+                </label>
+            </div>
+            <div class="search-returns loading">
+                <div class="search-heading">
+                    <h1 class="location-heading">Weather in Richmond</h1>
+                </div>
+                <div class="weather-container search-details">
+                    <div class="grid">
+                        <p class="curr-temp search-return">Current temperature: 50</p>
+                        <p class="feels-like search-return">Feels like: 55</p>
+                        <p class="max-temp search-return">Maximum temperature: 60</p>
+                        <p class="min-temp search-return">Minimum temperature: 40</p>
+                        <p class="description search-return">Description:</p>
+                        <img class="icon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="Image of weather conditions" />
+                        <p class="pressure search-return">Pressure: 400</p>
+                        <p class="wind-speed search-return">Wind speed: 10MPH</p>
+                    </div>
+                    <div class="progress-bars med-flex">
+                        <div class="humidity-progress progress">
+                            <div class="humidity-progress-fill"></div>
+                            <div class="humidity-progress-text">Humidity: 0%</div>
+                        </div>
+                        <div class="clouds-progress progress">
+                            <div class="clouds-progress-fill"></div>
+                            <div class="clouds-progress-text">Clouds: 0%</div>
+                        </div>
+                        <div class="visibility-progress progress">
+                            <div class="visibility-progress-fill"></div>
+                            <div class="visibility-progress-text">Visibility: 0%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forecast-container hidden">
+                    <!-- <div class="forecast-card">
+                        <img class="forecast-icon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="Image of weather conditions" />
+                        <h2 class="forecast-description">Cloudy</h2>
+                        <h2 class="forecast-temp">69</h2>
+                        <p class="forecast-time-date">2/15 12pm</p>
+                        <p class="forecast-humidity">Humidity: 53%</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
