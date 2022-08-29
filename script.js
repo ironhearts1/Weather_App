@@ -9,7 +9,7 @@ window.addEventListener("load", function () {
     let searchInput = document.getElementById("search");
     let locationInput = searchInput.value;
     let forecastContainer = document.querySelector(".forecast-container");
-    searchBtn.addEventListener("click", getWeather);
+    searchBtn.addEventListener("pointerdown", getWeather);
     searchInput.addEventListener("keyup", function (event) {
         if (event.key == "Enter") {
             getWeather();
@@ -53,6 +53,8 @@ window.addEventListener("load", function () {
     //longitude and latitude and the second takes that return and fetches weather data
     //based on the data from the first and then runs the data thru the displayweather funciton
     function getWeather(e) {
+        let weatherForecastSwitch = document.getElementById("switch");
+        weatherForecastSwitch.classList.remove("loading");
         let apiKey = "f52c1374387de22f10d8d388a56713d6";
         locationInput = searchInput.value;
         windowHeight = window.screen.availHeight;
@@ -89,9 +91,9 @@ window.addEventListener("load", function () {
         let state = gdata[0].state;
         let country = gdata[0].country;
         let clouds = wdata.clouds.all;
-        let {feels_like, humidity, pressure, temp, temp_max, temp_min} = wdata.main;
+        let { feels_like, humidity, pressure, temp, temp_max, temp_min } = wdata.main;
         let visibility = wdata.visibility;
-        let {description, icon} = wdata.weather[0];
+        let { description, icon } = wdata.weather[0];
         let wind = wdata.wind.speed;
         let visPercent = (visibility / 10000) * 100;
 
@@ -161,7 +163,7 @@ window.addEventListener("load", function () {
             let time = dateTime.slice(6, dateTime.length);
             console.log(date, time);
             let forecastCardContents = `
-            <img class="forecast-icon" src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="Image of weather conditions" />
+            <img class="forecast-icon small-screen-hidden" src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="Image of weather conditions" />
             <h2 class="forecast-description">${des}</h2>
             <h2 class="forecast-temp">${temp}${degsFar}</h2>
             <p class="forecast-time-date">${date}<br>${time}</p>

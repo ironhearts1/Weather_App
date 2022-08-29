@@ -113,7 +113,7 @@ body {
     margin-top: -10%;
 }
 label.loading {
-    visibility: hidden;
+    display: none;
 }
 .search-returns.loading {
     visibility: hidden;
@@ -341,4 +341,48 @@ span.weather-forecast-label {
     position: absolute;
     margin-left: 125%;
     margin-top: 15%;
+}
+
+@media (max-width: 500px) {
+    .weather-forecast-container {
+        width: 100%;
+        max-height: 95%;
+        overflow-y: scroll;
+        padding: 1em;
+    }
+    #search {
+        width: 40%;
+    }
+    .search-button {
+        height: 2em;
+        width: 2em;
+    }
+    .location-heading {
+        font-size: 1.5em;
+    }
+    .grid {
+        font-size: 0.8em;
+    }
+    .small-screen-hidden {
+        display: none;
+    }
+    .forecast-card {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+        grid-template-areas:
+            "description temperature"
+            "time-date humidity";
+    }
+    .forecast-description {
+        font-size: 0.6em;
+    }
+    .forecast-temp {
+        font-size: 0.6em;
+    }
+    .forecast-humidity {
+        text-align: end;
+    }
+    .weather-forecast-label {
+        font-size: 0.75em;
+    }
 }
